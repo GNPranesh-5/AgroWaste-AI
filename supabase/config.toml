@@ -1,0 +1,4 @@
+project_id = "ujiurwyjibmkgozypxkw"
+
+[functions.compost-chat]
+verify_jwt = false

@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Eco-Green Theme */
+    --background: 120 20% 97%;
+    --foreground: 150 30% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 150 30% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 30% 15%;
+
+    /* Primary: Forest Green */
+    --primary: 142 60% 35%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary: Soft Sage */
+    --secondary: 140 25% 92%;
+    --secondary-foreground: 150 30% 25%;
+
+    /* Muted: Light Sage */
+    --muted: 140 20% 94%;
+    --muted-foreground: 150 15% 45%;
+
+    /* Accent: Mint */
+    --accent: 158 50% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Status Colors */
+    --success: 142 70% 40%;
+    --success-foreground: 0 0% 100%;
+    
+    --warning: 38 90% 50%;
+    --warning-foreground: 38 90% 15%;
+    
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --critical: 0 85% 55%;
+    --critical-foreground: 0 0% 100%;
+
+    --border: 140 20% 88%;
+    --input: 140 20% 88%;
+    --ring: 142 60% 35%;
+
+    --radius: 0.75rem;
+
+    /* Custom gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(142, 60%, 35%) 0%, hsl(158, 50%, 45%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(140, 25%, 95%) 0%, hsl(120, 20%, 97%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0, 0%, 100%) 0%, hsl(140, 20%, 98%) 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 8px -2px hsl(142 60% 35% / 0.08);
+    --shadow-md: 0 8px 24px -6px hsl(142 60% 35% / 0.12);
+    --shadow-lg: 0 16px 48px -12px hsl(142 60% 35% / 0.15);
+
+    --sidebar-background: 140 25% 96%;
+    --sidebar-foreground: 150 30% 25%;
+    --sidebar-primary: 142 60% 35%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 140 20% 92%;
+    --sidebar-accent-foreground: 150 30% 25%;
+    --sidebar-border: 140 20% 88%;
+    --sidebar-ring: 142 60% 35%;
+  }
+
+  .dark {
+    --background: 222 47% 11%; /* #0f172a */
+    --foreground: 213 27% 92%; /* #e2e8f0 */
+
+    --card: 217 33% 17%; /* #1e293b */
+    --card-foreground: 213 27% 92%; /* #e2e8f0 */
+
+    --popover: 150 20% 12%;
+    --popover-foreground: 140 20% 95%;
+
+    --primary: 142 55% 50%;
+    --primary-foreground: 150 30% 8%;
+
+    --secondary: 150 20% 18%;
+    --secondary-foreground: 140 20% 90%;
+
+    --muted: 150 20% 18%;
+    --muted-foreground: 140 15% 60%;
+
+    --accent: 158 45% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --success: 142 65% 45%;
+    --success-foreground: 150 30% 8%;
+    
+    --warning: 38 85% 55%;
+    --warning-foreground: 38 90% 10%;
+    
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --critical: 0 80% 60%;
+    --critical-foreground: 0 0% 100%;
+
+    --border: 150 20% 20%;
+    --input: 150 20% 20%;
+    --ring: 142 55% 50%;
+
+    --sidebar-background: 150 25% 10%;
+    --sidebar-foreground: 140 20% 90%;
+    --sidebar-primary: 142 55% 50%;
+    --sidebar-primary-foreground: 150 30% 8%;
+    --sidebar-accent: 150 20% 15%;
+    --sidebar-accent-foreground: 140 20% 90%;
+    --sidebar-border: 150 20% 18%;
+    --sidebar-ring: 142 55% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'DM Sans', sans-serif;
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .card-eco {
+    @apply bg-card rounded-xl border border-border p-6;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .card-eco:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .status-healthy {
+    @apply bg-success text-success-foreground;
+  }
+
+  .status-attention {
+    @apply bg-warning text-warning-foreground;
+  }
+
+  .status-critical {
+    @apply bg-critical text-critical-foreground;
+  }
+
+  .input-eco {
+    @apply w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 rounded-lg font-medium text-primary-foreground transition-all duration-200;
+    background: var(--gradient-primary);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .btn-primary:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 rounded-lg font-medium bg-secondary text-secondary-foreground border border-border hover:bg-muted transition-all duration-200;
+  }
+
+  .progress-bar {
+    @apply h-3 rounded-full bg-muted overflow-hidden;
+  }
+
+  .progress-fill {
+    @apply h-full rounded-full transition-all duration-500 ease-out;
+    background: var(--gradient-primary);
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  @keyframes pulseSlow {
+    0%, 100% {
+      opacity: 1;
+      background-color: rgba(34, 197, 94, 0.1);
+    }
+    50% {
+      opacity: 0.8;
+      background-color: rgba(34, 197, 94, 0.2);
+    }
+  }
+
+  .animate-pulse-slow {
+    animation: pulseSlow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .message-hover {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+  .message-hover:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+}
